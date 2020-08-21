@@ -1,0 +1,28 @@
+{{- if Values.hooks.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  generateName: app-slack-notification-
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+      - name: slack-notification
+        image: curlimages/curl
+        command:
+          - "curl"
+          - "-X"
+          - "POST"
+          - "-H"
+          - "Content-type: application/json"
+          - "-H"
+          - "Authorization: Bearer {{ .Values.hooks.slackToken }}"
+          - "--data"
+          - "{\"channel\":\"C0191LZH09F\",\"text\":\"CLI test\",\"icon_emoji\": \":ghost:\"}"
+          - "https://slack.com/api/chat.postMessage"
+      restartPolicy: Never
+  backoffLimit: 2
+{{ end }}

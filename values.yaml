@@ -15,3 +15,6 @@ ingress:
   enabled: true
   tld: ryanwholey.com
   name: app
+hooks:
+  enabled: false
+  slackToken: ""
