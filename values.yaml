@@ -12,5 +12,6 @@ service:
   annotations: {}
   type: ClusterIP
 ingress:
+  enabled: true
   tld: ryanwholey.com
   name: app
