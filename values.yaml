@@ -1,21 +1,16 @@
 image:
   repository: ryanwholey/test-app
-  tag: latest
+  tag: foo
   pullPolicy: IfNotPresent
-
 server:
   extraArgs: {}
-
   podAnnotations: {}
   replicaCount: 1
-
   resources: {}
   port: 3000
-
 service:
   annotations: {}
   type: ClusterIP
-
 ingress:
   tld: ryanwholey.com
   name: app
