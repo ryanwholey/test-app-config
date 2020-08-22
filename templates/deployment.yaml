@@ -31,5 +31,11 @@ spec:
           imagePullPolicy: "{{ .Values.image.pullPolicy }}"
           ports:
             - containerPort: 3000
+          livenessProbe:
+            httpGet:
+              path: /system/health/alive
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 3
           resources:
 {{ toYaml .Values.server.resources | indent 12 }}
