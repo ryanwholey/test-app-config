@@ -8,6 +8,7 @@ server:
   replicaCount: 3
   resources: {}
   port: 3000
+  progressDeadlineSeconds: 120
 service:
   annotations: {}
   type: ClusterIP
