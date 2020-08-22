@@ -8,6 +8,7 @@ metadata:
   name: {{ template "fullname" . }}
 spec:
   replicas: {{ .Values.server.replicaCount }}
+  progressDeadlineSeconds: {{ .Values.server.progressDeadlineSeconds }}
   selector:
     matchLabels:
       app.kubernetes.io/name: {{ template "name" . }}
@@ -25,7 +26,6 @@ spec:
         app.kubernetes.io/instance: {{ .Release.Name }}
         component: server
     spec:
-      progressDeadlineSeconds: {{ .Values.server.progressDeadlineSeconds }}
       containers:
         - name: {{ template "name" . }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
