@@ -1,6 +1,6 @@
 image:
   repository: ryanwholey/test-app
-  tag: 0f744d7bd25d831308542183b01f2fa7b8ee5e6c
+  tag: 2ebb5468d58102cec9664994b5142774f53a06cc
   pullPolicy: IfNotPresent
 server:
   extraArgs: {}
